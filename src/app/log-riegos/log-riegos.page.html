@@ -1,0 +1,24 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>logRiegos Device : {{idDispositivo}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div *ngFor="let element of logRiegos ; let i=index" >
+    
+    <p>{{logRiegos[i] | logRiegoPipe}}</p>
+
+  </div>  
+
+</ion-content>

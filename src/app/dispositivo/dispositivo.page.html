@@ -1,0 +1,37 @@
+
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>dispositivo {{dispositivo.dispositivoId }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card >
+    <ion-item>
+      <ion-icon name="speedometer" slot="start"></ion-icon>
+      <ion-label>Nombre:{{dispositivo.nombre}}</ion-label>              
+    </ion-item>  
+    <ion-item>
+      <ion-icon name="location" slot="start"></ion-icon>
+      <ion-label>Ubicacion:{{dispositivo.ubicacion }}</ion-label>
+    </ion-item>    
+    <ion-item>
+      <ion-label>ElectrovalvulaId:{{dispositivo.electrovalvulaId}}</ion-label>
+    </ion-item>
+    
+  </ion-card>
+ <!--<app-detalle-sensor></app-detalle-sensor>--> 
+<ion-button shape="round" expand="full" >ABRIR ELECTROVALVULAS</ion-button>
+<ion-button shape="round" expand="full" routerLink="/medicion/{{dispositivo.dispositivoId}}" routerDirection="root" >VER TODAS LAS MEDICIONES</ion-button>
+<ion-button shape="round" expand="full" routerLink="/log-riegos/{{dispositivo.dispositivoId}}" routerDirection="root">VER LOG DE RIEGOS</ion-button>
+
+</ion-content>
