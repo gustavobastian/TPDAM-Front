@@ -3,6 +3,7 @@ import { DispositivoService } from '../services/dispositivo.service';
 import { DetalleSensorPage } from './detalle-sensor-page';
 import { ActivatedRoute } from '@angular/router';
 import { Dispositivo } from '../model/dispositivo';
+import { Medicion } from '../model/medicion';
 
 @Component({
   selector: 'app-dispositivo',
@@ -12,12 +13,14 @@ import { Dispositivo } from '../model/dispositivo';
 export class DispositivoPage implements OnInit {
 
   public dispositivo: Dispositivo;
+  public medicionUltima: Medicion;
   constructor(private router: ActivatedRoute, public dispositivoServ: DispositivoService) { }
 
   ngOnInit() {
     const idDispositivo = this.router.snapshot.paramMap.get('id');
     console.log('idDispositivo:'+idDispositivo);
     this.dispositivo = this.dispositivoServ.getDispositivo(idDispositivo);
+    this.medicionUltima=this.dispositivoServ.getLastMedicion(idDispositivo);
     console.log(this.dispositivo);
   }
 

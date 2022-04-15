@@ -1,0 +1,26 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>electrovalvula {{idDispositivo}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!--<p>{{ultimoLogRiegos| json}}</p>-->
+  <br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <div *ngIf= "apertura == 1">
+    <ion-toggle checked style="margin:10%; width:75%; height:40px;"></ion-toggle>
+  </div>  
+  <div *ngIf= "apertura == 0">
+    <ion-toggle style="margin:10%; width:75%; height:40px;"></ion-toggle>
+  </div>  
+</ion-content>

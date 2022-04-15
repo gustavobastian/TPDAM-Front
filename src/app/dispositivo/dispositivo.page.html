@@ -27,10 +27,12 @@
     <ion-item>
       <ion-label>ElectrovalvulaId:{{dispositivo.electrovalvulaId}}</ion-label>
     </ion-item>
-    
+    <ion-item>
+      <p>Ultima Medicion: {{medicionUltima.valor }}</p>
+    </ion-item>
   </ion-card>
  <!--<app-detalle-sensor></app-detalle-sensor>--> 
-<ion-button shape="round" expand="full" >ABRIR ELECTROVALVULAS</ion-button>
+<ion-button shape="round" expand="full"routerLink="/electrovalvula/{{dispositivo.electrovalvulaId}}" routerDirection="root" >ABRIR ELECTROVALVULAS</ion-button>
 <ion-button shape="round" expand="full" routerLink="/medicion/{{dispositivo.dispositivoId}}" routerDirection="root" >VER TODAS LAS MEDICIONES</ion-button>
 <ion-button shape="round" expand="full" routerLink="/log-riegos/{{dispositivo.dispositivoId}}" routerDirection="root">VER LOG DE RIEGOS</ion-button>
 

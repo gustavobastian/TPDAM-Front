@@ -45,5 +45,8 @@ export class DispositivoService {
    getAllMedicion(id): Medicion[]{
     return this.mediciones;
    };
+   getLastLogRiegos(id): LogRiegos{
+    return this.logRiegos.filter(logRiegos=> logRiegos.electrovalvulaId==id)[0];
+   };
 
 };
