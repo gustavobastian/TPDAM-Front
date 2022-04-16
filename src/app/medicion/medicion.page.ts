@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DispositivoService } from '../services/dispositivo.service';
 import {Medicion} from '../model/medicion';
+import { MedicionService } from '../services/medicion.service';
 
 @Component({
   selector: 'app-medicion',
@@ -12,14 +13,14 @@ export class MedicionPage implements OnInit {
   public idDispositivo: string;
   Mediciones: Array <Medicion> = new Array<Medicion>(); 
   
-  constructor(private router: ActivatedRoute, public dispositivoServ: DispositivoService) { 
+  constructor(private router: ActivatedRoute, public medicionesServ: MedicionService ,public dispositivoServ: DispositivoService) { 
     this.idDispositivo='0';
   }
 
   ngOnInit() {
     this.idDispositivo = this.router.snapshot.paramMap.get('id');
     console.log('idDispositivo:'+this.idDispositivo);
-    this.Mediciones= this.dispositivoServ.getAllMedicion(this.idDispositivo);
+    this.Mediciones= this.medicionesServ.getAllMedicion(this.idDispositivo);
   }
 
 }

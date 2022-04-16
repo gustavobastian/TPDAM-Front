@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DispositivoService } from '../services/dispositivo.service';
+import { LogRiegoService } from '../services/log-riego.service';
 import { LogRiegos } from '../model/logRiegos'
 
 @Component({
@@ -13,7 +13,7 @@ export class ElectrovalvulaPage implements OnInit {
   public ultimoLogRiegos: LogRiegos;
   public apertura=0;
 
-  constructor(private router: ActivatedRoute, public dispositivoServ: DispositivoService) { }
+  constructor(private router: ActivatedRoute, public dispositivoServ: LogRiegoService) { }
 
   ngOnInit() {
     this.idEvalvula = this.router.snapshot.paramMap.get('id');
