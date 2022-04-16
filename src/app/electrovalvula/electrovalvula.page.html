@@ -15,12 +15,11 @@
 </ion-header>
 
 <ion-content>
-  <!--<p>{{ultimoLogRiegos| json}}</p>-->
+ <!-- <p>{{ultimoLogRiegos| json}}</p>-->
   <br><br><br><br><br><br><br><br><br><br><br><br><br>
-  <div *ngIf= "apertura == 1">
-    <ion-toggle checked style="margin:10%; width:75%; height:40px;"></ion-toggle>
+  <div [ngSwitch]= "apertura">
+    <ion-toggle *ngSwitchCase="1" checked style="margin:10%; width:75%; height:40px;" (ionChange)="OnChange()"></ion-toggle>
+    <ion-toggle *ngSwitchCase="0" style="margin:10%; width:75%; height:40px;" (ionChange)="OnChange()"></ion-toggle>
   </div>  
-  <div *ngIf= "apertura == 0">
-    <ion-toggle style="margin:10%; width:75%; height:40px;"></ion-toggle>
-  </div>  
+  
 </ion-content>

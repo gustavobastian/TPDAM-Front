@@ -9,17 +9,22 @@ import { LogRiegos } from '../model/logRiegos'
   styleUrls: ['./electrovalvula.page.scss'],
 })
 export class ElectrovalvulaPage implements OnInit {
-  public idDispositivo: string;
+  public idEvalvula: string;
   public ultimoLogRiegos: LogRiegos;
   public apertura=0;
 
   constructor(private router: ActivatedRoute, public dispositivoServ: DispositivoService) { }
 
   ngOnInit() {
-    this.idDispositivo = this.router.snapshot.paramMap.get('id');
-    console.log('idDispositivo:'+this.idDispositivo);
-    this.ultimoLogRiegos= this.dispositivoServ.getLastLogRiegos(this.idDispositivo);
+    this.idEvalvula = this.router.snapshot.paramMap.get('id');
+    console.log('idElectrovalvula:'+this.idEvalvula);
+    this.ultimoLogRiegos= this.dispositivoServ.getLastLogRiegos(this.idEvalvula);
     this.apertura= this.ultimoLogRiegos.apertura;
+  }
+
+  public OnChange (){
+    console.log("Electrovalve change called");
+    this.dispositivoServ.modifyValveState(this.idEvalvula);
   }
 
 }
