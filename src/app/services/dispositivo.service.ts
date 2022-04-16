@@ -1,15 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Dispositivo } from '../model/dispositivo';
-import { Medicion } from '../model/medicion';
-import { LogRiegos } from '../model/logRiegos';
+
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DispositivoService {
-   listado: Array <Dispositivo> = new Array<Dispositivo>();
-   
+   private listado: Array <Dispositivo> = new Array<Dispositivo>();
 
    constructor() {
     this.listado.push(new Dispositivo(1,'canilla','frente',1));
@@ -23,7 +21,9 @@ export class DispositivoService {
    getDispositivo(id): Dispositivo{
     return this.listado.filter(dispositivo=> dispositivo.dispositivoId==id)[0];
    };
-   
+   getAllDispositivo(): Dispositivo[]{
+    return this.listado;
+   };
   
 
 };
