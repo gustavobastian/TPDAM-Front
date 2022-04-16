@@ -5,7 +5,7 @@ import { LogRiegos } from '../model/logRiegos';
   providedIn: 'root'
 })
 export class LogRiegoService {
-  logRiegos: Array <LogRiegos> = new Array<LogRiegos>();
+  private logRiegos: Array <LogRiegos> = new Array<LogRiegos>();
 
   constructor() { 
 

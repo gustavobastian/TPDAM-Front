@@ -1,39 +1,41 @@
 export class Dispositivo{
-    public dispositivoId: number;
-    public nombre: string;
-    public ubicacion: string;
-    public electrovalvulaId: number;
+    private _dispositivoId: number;
+    private _electrovalvulaId: number;
+    private _nombre: string;
+    private _ubicacion: string;
+    
 
     constructor(electrovalvId: number, nombre: string, ubic: string, dispositivoId: number){
-        this.dispositivoId= dispositivoId;
-        this.nombre= nombre;
-        this.ubicacion = ubic;
+        this._dispositivoId= dispositivoId;
+        this._nombre= nombre;
+        this._ubicacion = ubic;
         this.electrovalvulaId= electrovalvId;
     }
-    /*
-    public  gDispositivoId(): number{
-        return this.dispositivoId;
+    
+    public  get dispositivoId(){
+        return this._dispositivoId;
     }
-    public  sDispositivoId(num: number){
-         this.dispositivoId = num;
+    public set dispositivoId(num: number){
+         this._dispositivoId = num;
     }
-    public  gElectrovalvId(): number {
-        return this.electrovalvulaId;
+    
+    public  get electrovalvulaId(){
+        return this._electrovalvulaId;
     }
-    public  sElectrovalvId(num: number){
-        this.electrovalvulaId = num;
+    public set electrovalvulaId(num: number){
+        this._electrovalvulaId = num;
     }
-
-    public  gNombre(): string {
-        return this.nombre;
+    
+    public get nombre() {
+        return this._nombre;
     }
-    public  sNombre(nom: string){
-        this.nombre = nom;
+    public set nombre(nom: string){
+        this._nombre = nom;
     }
-    public gUbicacion(): string{
-        return this.ubicacion;
+    public get ubicacion(){
+        return this._ubicacion;
     }
-    public sUbicacion(ubic: string){
-        this.ubicacion = ubic;
-    }*/
+    public set ubicacion(ubic: string){
+        this._ubicacion = ubic;
+    }
 };

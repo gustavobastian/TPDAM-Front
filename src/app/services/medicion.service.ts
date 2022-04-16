@@ -5,7 +5,7 @@ import { Medicion } from '../model/medicion';
   providedIn: 'root'
 })
 export class MedicionService {
-  mediciones: Array <Medicion> = new Array<Medicion>();
+  private mediciones: Array <Medicion> = new Array<Medicion>();
   constructor() {
 
     this.mediciones.push(new Medicion(1,'10/1/2022','12346',1));

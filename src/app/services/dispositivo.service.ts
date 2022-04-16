@@ -12,9 +12,7 @@ export class DispositivoService {
    constructor() {
     this.listado.push(new Dispositivo(1,'canilla','frente',1));
     this.listado.push(new Dispositivo(2,'manguera','patio',2));
-    this.listado.push(new Dispositivo(3,'manguerita','techo',3));
-    this.listado.push(new Dispositivo(4,'bacha','cocina',4));   
-
+    
     console.log(this.listado[0]);
    }
 
