@@ -34,14 +34,16 @@ export class ElectrovalvulaPage  {
   //  console.log("Estoy en el llamoLastLogRiegos y llame a los lastlogriegos");
     let local= await this.logRiegoServ.getLastLogRiegos(this.idEvalvula);    
     this.ultimoLogRiegos=local;   
+    this.apertura=this.ultimoLogRiegos.apertura;   
     console.log(local); 
   }
 
   async llamoElectrovalvulaId(){
   //  console.log("Estoy en el llamoElectrovalvulaId y llame a la electrovalvula");
-    let local= await this.electroServ.getElectrovalve(this.idEvalvula);    
-    this.electrovalvula=local;   
-   // console.log(local); 
+    let local2= await this.electroServ.getElectrovalve(this.idEvalvula);    
+    this.electrovalvula=local2;
+    
+    console.log(local2); 
   }
   
 }
