@@ -11,18 +11,21 @@ import { LogRiegoService } from '../services/log-riego.service';
   templateUrl: './log-riegos.page.html',
   styleUrls: ['./log-riegos.page.scss'],
 })
-export class LogRiegosPage implements OnInit {
+export class LogRiegosPage  {
   public idDispositivo: string;
   logRiegos: Array <LogRiegos> = new Array<LogRiegos>();
 
   constructor(private router: ActivatedRoute, public logRiegosServ:LogRiegoService ,public dispositivoServ: DispositivoService) {
-    this.idDispositivo='0';
-   }
-
-  ngOnInit() {
+    
     this.idDispositivo = this.router.snapshot.paramMap.get('id');
     console.log('idDispositivo:'+this.idDispositivo);
-    this.logRiegos= this.logRiegosServ.getLogRiegos(this.idDispositivo) ;
-  }
+    this.llamoLogRiegos();
+   }
 
+  async llamoLogRiegos(){
+    console.log("Estoy en el llamoLogRiegos y llame a los logriegos");
+    let local= await this.logRiegosServ.getLogRiegos(this.idDispositivo); 
+    console.log(local);   
+    this.logRiegos=local;    
+  }
 }

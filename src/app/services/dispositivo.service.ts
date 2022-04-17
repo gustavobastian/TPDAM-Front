@@ -22,10 +22,10 @@ export class DispositivoService {
     });
   };
 
-  getDispositivo(id):Promise<Dispositivo>{
-    console.log("inside");
-    return this._http.get(this.urlApi+"/api/dispositivo/"+id).toPromise().then((dispositivo:Dispositivo)=>{
-    return dispositivo;
+  getDispositivo(id): Promise<Dispositivo>{    
+    return this._http.get(this.urlApi+"/api/dispositivo/"+id).toPromise().then((dispositivo:Dispositivo[])=>{
+    console.log(dispositivo[0].nombre);
+    return dispositivo[0];
     });
   };
   

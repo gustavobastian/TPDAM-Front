@@ -30,8 +30,8 @@ export class DispositivoPage  {
   async llamoDispositivo(idDispositivo: string){
     console.log("Estoy en llamando al dispositivo");
     let local= await this.dispositivoServ.getDispositivo(parseInt(idDispositivo)); 
-    this.dispositivo=local;
-    
+    console.log(local.nombre);
+    this.dispositivo=local;   
    // window.location.reload();
   };
   async llamoMedicion(idDispositivo: string){
