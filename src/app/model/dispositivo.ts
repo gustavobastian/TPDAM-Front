@@ -1,15 +1,16 @@
 export class Dispositivo{
-    private _dispositivoId: number;
-    private _electrovalvulaId: number;
+    private _dispositivoId: number;    
     private _nombre: string;
     private _ubicacion: string;
+    private _electrovalvulaId: number;
     
 
-    constructor(electrovalvId: number, nombre: string, ubic: string, dispositivoId: number){
+    constructor(dispositivoId: number, nombre: string, ubic: string,electrovalvId: number ){
         this._dispositivoId= dispositivoId;
         this._nombre= nombre;
         this._ubicacion = ubic;
-        this.electrovalvulaId= electrovalvId;
+        this._electrovalvulaId= electrovalvId;       
+
     }
     
     public  get dispositivoId(){

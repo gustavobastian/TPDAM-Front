@@ -9,12 +9,7 @@ export class LogRiegoService {
 
   constructor() { 
 
-    this.logRiegos.push(new LogRiegos(1,0,'10/2/2022',1));
-    this.logRiegos.push(new LogRiegos(2,1,'10/2/2022',2));
-    this.logRiegos.push(new LogRiegos(3,0,'10/2/2022',1));
-    this.logRiegos.push(new LogRiegos(4,1,'10/2/2022',1));
-    this.logRiegos.push(new LogRiegos(5,0,'11/3/2022',1));
-    this.logRiegos.push(new LogRiegos(6,0,'11/2/2022',2));
+    this.logRiegos.push(new LogRiegos(1,0,'10/2/2022',1));  
 
   }
   getLogRiegos(id): LogRiegos[]{

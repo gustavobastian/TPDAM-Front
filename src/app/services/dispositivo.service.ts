@@ -7,21 +7,29 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DispositivoService {
-   private listado: Array <Dispositivo> = new Array<Dispositivo>();
+   
 
-   constructor() {
-    this.listado.push(new Dispositivo(1,'canilla','frente',1));
-    this.listado.push(new Dispositivo(2,'manguera','patio',2));
-    
-    console.log(this.listado[0]);
+   urlApi="http://localhost:8000";
+
+   constructor(private _http: HttpClient ) {
+      
    }
+   
 
-   getDispositivo(id): Dispositivo{
-    return this.listado.filter(dispositivo=> dispositivo.dispositivoId==id)[0];
-   };
-   getAllDispositivo(): Dispositivo[]{
-    return this.listado;
-   };
+   getListadoDispositivos():Promise<Dispositivo[]>{     
+    return this._http.get(this.urlApi+ "/api/dispositivo/").toPromise().then((listado:Dispositivo[])=>{      
+      return listado;
+    });
+  };
+
+  getDispositivo(id):Promise<Dispositivo>{
+    console.log("inside");
+    return this._http.get(this.urlApi+"/api/dispositivo/"+id).toPromise().then((dispositivo:Dispositivo)=>{
+    return dispositivo;
+    });
+  };
+  
+
   
 
 };

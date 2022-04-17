@@ -44,16 +44,16 @@
     <ion-card >
       <ion-item>
         <ion-icon name="speedometer" slot="start"></ion-icon>
-        <ion-label>Nombre:{{dispositivos[i].nombre}}</ion-label>
+        <ion-label>Nombre: {{dispositivos[i].nombre}}</ion-label>
         <ion-button fill="outline" slot="end" routerLink="/dispositivo/{{dispositivos[i].dispositivoId}}" routerDirection="root" >Visitar</ion-button>        
       </ion-item>  
       <ion-item>
         <ion-icon name="location" slot="start"></ion-icon>
-        <ion-label>Ubicacion:{{dispositivos[i].ubicacion }}</ion-label>
+        <ion-label>Ubicacion: {{dispositivos[i].ubicacion }}</ion-label>
       </ion-item>
       <ion-card-content>
-       <p> DispositivoId:{{dispositivos[i].dispositivoId }}</p>
-       <p>ElectrovalvulaId:{{dispositivos[i].electrovalvulaId}}</p>
+       <p> DispositivoId: {{dispositivos[i].dispositivoId }}</p>
+       <p>ElectrovalvulaId: {{dispositivos[i].electrovalvulaId}}</p>
       </ion-card-content>
     </ion-card>
     

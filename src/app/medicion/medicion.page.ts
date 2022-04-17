@@ -9,18 +9,24 @@ import { MedicionService } from '../services/medicion.service';
   templateUrl: './medicion.page.html',
   styleUrls: ['./medicion.page.scss'],
 })
-export class MedicionPage implements OnInit {
+export class MedicionPage  {
   public idDispositivo: string;
   Mediciones: Array <Medicion> = new Array<Medicion>(); 
   
   constructor(private router: ActivatedRoute, public medicionesServ: MedicionService ,public dispositivoServ: DispositivoService) { 
-    this.idDispositivo='0';
-  }
 
-  ngOnInit() {
     this.idDispositivo = this.router.snapshot.paramMap.get('id');
     console.log('idDispositivo:'+this.idDispositivo);
-    this.Mediciones= this.medicionesServ.getAllMedicion(this.idDispositivo);
+    this.llamoMediciones();
+
+  }
+
+  
+
+  async llamoMediciones(){
+    console.log("Estoy en el llamoMediciones y llame a las mediciones");
+    let local= await this.medicionesServ.getAllMedicion(this.idDispositivo);    
+    this.Mediciones=local;    
   }
 
 }

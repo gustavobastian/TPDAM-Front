@@ -9,8 +9,25 @@ import {DispositivoService} from '../services/dispositivo.service';
 })
 export class HomePage {
   dispositivos: Array <Dispositivo> = new Array<Dispositivo>();
-  constructor(public dispositivoServ: DispositivoService) {
-    this.dispositivos=this.dispositivoServ.getAllDispositivo();
+
+  constructor(public dispositivoServ: DispositivoService) {    
+    this.llamoService();
+  }
+
+  async llamoService(){
+    console.log("Estoy en el llamoServicec y llame al service");
+    let listado= await this.dispositivoServ.getListadoDispositivos();    
+    this.dispositivos=listado;    
+  }
+
+  metodo2(){
+    this.dispositivoServ.getListadoDispositivos().then((listado)=>{
+      this.dispositivoServ.getDispositivo(listado[0].dispositivoId).then((valor2)=>{
+        console.log(valor2);
+      })
+      this.dispositivos=listado;
+      console.log(listado);
+    });
   }
 
 }
