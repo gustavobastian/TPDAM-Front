@@ -17,7 +17,7 @@ export class DispositivoPage  {
   public medicionUltima: Medicion;
   public idDispositivo: string;
 
-  constructor(private router: ActivatedRoute, public dispositivoServ: DispositivoService, public medicionServ: MedicionService) {
+  constructor(private sensor: DetalleSensorPage, private router: ActivatedRoute, public dispositivoServ: DispositivoService, public medicionServ: MedicionService) {
 
     this.idDispositivo = this.router.snapshot.paramMap.get('id');    
     this.llamoDispositivo(this.idDispositivo);
@@ -39,6 +39,7 @@ export class DispositivoPage  {
     let local= await this.medicionServ.getLastMedicion(parseInt(idDispositivo)); 
     this.medicionUltima=local;          
     this.loaded=1;      
+   // this.sensor.setValorObtenido(parseInt(this.medicionUltima.valor));
    // window.location.reload();
   };
   

@@ -4,6 +4,10 @@ import * as Highcharts from 'highcharts';
 declare var require: any;
 require('highcharts/highcharts-more')(Highcharts);
 require('highcharts/modules/solid-gauge')(Highcharts);
+import { HttpClient } from '@angular/common/http';
+import { interval, Subscription } from 'rxjs';
+
+
 
 @Component({
   selector: 'app-detalle-sensor',
@@ -17,7 +21,7 @@ export class DetalleSensorPage implements OnInit {
   private chartOptions;
 
   constructor() {
-    setTimeout(()=>{
+  /*  setTimeout(()=>{
       console.log('Cambio el valor del sensor');
       this.valorObtenido=60;
       //llamo al update del chart para refrescar y mostrar el nuevo valor
@@ -28,7 +32,7 @@ export class DetalleSensorPage implements OnInit {
               valueSuffix: ' kPA'
           }
       }]});
-    },6000);
+    },6000);*/
   }
 
   ngOnInit() {
@@ -103,5 +107,14 @@ export class DetalleSensorPage implements OnInit {
     };
     this.myChart = Highcharts.chart('highcharts', this.chartOptions );
   }
-
+  public setValorObtenido(valor: number) {
+    this.valorObtenido=valor;
+    this.myChart.update({series: [{
+      name: 'kPA',
+      data: [this.valorObtenido],
+      tooltip: {
+          valueSuffix: ' kPA'
+      }
+  }]});
+  }
 }

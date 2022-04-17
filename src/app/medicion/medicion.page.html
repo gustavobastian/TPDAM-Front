@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="home"></ion-back-button>
+      <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -14,9 +14,32 @@
 
 <ion-content>
   <ion-content>
+    <ion-row>
+      <ion-col>
+        Medicion
+      </ion-col>
+      <ion-col>
+        Fecha
+      </ion-col>
+      <ion-col>
+        Valor
+      </ion-col>      
+    </ion-row>
+  
+
     <div *ngFor="let element of Mediciones ; let i=index" >
-      
-      <p>{{Mediciones[i] | medicionesPipe}}</p>
+      <ion-row>
+        <ion-col>
+          {{Mediciones[i].medicionId}}
+        </ion-col>
+        <ion-col>
+          {{Mediciones[i].fecha}}
+        </ion-col>
+        <ion-col>
+          {{Mediciones[i].valor}}
+        </ion-col>      
+      </ion-row>
+     <!-- <p>{{Mediciones[i] | medicionesPipe}}</p>-->
   
     </div> 
 </ion-content>

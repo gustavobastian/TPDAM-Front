@@ -18,10 +18,8 @@ export class MedicionPage  {
     this.idDispositivo = this.router.snapshot.paramMap.get('id');
     console.log('idDispositivo:'+this.idDispositivo);
     this.llamoMediciones();
-
   }
-
-  
+ 
 
   async llamoMediciones(){
     console.log("Estoy en el llamoMediciones y llame a las mediciones");

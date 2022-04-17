@@ -9,17 +9,14 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { HttpClientModule } from '@angular/common/http';
 
-
-
-
-
+import { DetalleSensorPage } from './dispositivo/detalle-sensor-page'
 
 
 @NgModule({
   declarations: [AppComponent ],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), HttpClientModule, AppRoutingModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy},{provide:DetalleSensorPage, useClass: DetalleSensorPage}],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
