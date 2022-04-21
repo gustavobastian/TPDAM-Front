@@ -1,7 +1,7 @@
 export class Medicion{
     private _medicionId: number;
     private _fecha: string;
-    private _valor: string;
+    public _valor: string;
     private _dispositivoId: number;
 
     constructor(medIdDato: number, fechaDato: string, valorDato: string, dispositivoIdDato: number){

@@ -1,12 +1,10 @@
-//correr antes npm install --save highcharts
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 declare var require: any;
 require('highcharts/highcharts-more')(Highcharts);
 require('highcharts/modules/solid-gauge')(Highcharts);
-import { HttpClient } from '@angular/common/http';
-import { interval, Subscription } from 'rxjs';
-
+import { Medicion } from '../model/medicion';
+import { MedicionService } from '../services/medicion.service';
 
 
 @Component({
@@ -15,15 +13,25 @@ import { interval, Subscription } from 'rxjs';
 })
 
 export class DetalleSensorPage implements OnInit {
-
+  public medicionUltima: Medicion;
+  
+  
   public myChart;
   private valorObtenido=0;
   private chartOptions;
+  
 
-  constructor() {
-  /*  setTimeout(()=>{
+   @Input() sensorNumber : string;
+
+  constructor(public medicionServ: MedicionService) {
+        
+    setTimeout(()=>{
+      console.log(this.medicionUltima);
+      console.log(this.medicionUltima.valor);
+      //this.valorObtenido=parseInt(this.medicionUltima.valor);
       console.log('Cambio el valor del sensor');
-      this.valorObtenido=60;
+      //this.valorObtenido=60;
+      this.valorObtenido=parseInt(this.medicionUltima.valor);
       //llamo al update del chart para refrescar y mostrar el nuevo valor
       this.myChart.update({series: [{
           name: 'kPA',
@@ -32,17 +40,21 @@ export class DetalleSensorPage implements OnInit {
               valueSuffix: ' kPA'
           }
       }]});
-    },6000);*/
+    },6000);
   }
 
   ngOnInit() {
+    console.log("este es el sensor:"+ this.sensorNumber);    
+    this.llamoMedicion(this.sensorNumber);
+    this.generarChart(this.sensorNumber);
+    
   }
 
   ionViewDidEnter() {
-    this.generarChart();
+    
   }
 
-  generarChart() {
+  generarChart(name: string) {
     this.chartOptions={
       chart: {
           type: 'gauge',
@@ -52,9 +64,8 @@ export class DetalleSensorPage implements OnInit {
           plotShadow: false
         }
         ,title: {
-          text: 'Sensor N° 1'
+          text: 'Sensor N° '+name
         }
-
         ,credits:{enabled:false}
         ,pane: {
             startAngle: -150,
@@ -103,18 +114,22 @@ export class DetalleSensorPage implements OnInit {
             valueSuffix: ' kPA'
         }
     }]
-
     };
     this.myChart = Highcharts.chart('highcharts', this.chartOptions );
   }
-  public setValorObtenido(valor: number) {
-    this.valorObtenido=valor;
-    this.myChart.update({series: [{
-      name: 'kPA',
-      data: [this.valorObtenido],
-      tooltip: {
-          valueSuffix: ' kPA'
-      }
-  }]});
-  }
+   public update(){
+     this.valorObtenido=100;
+   }
+
+   async llamoMedicion(idDispositivo: string){
+    console.log("Estoy en llamando a la medicion");
+    let local= await this.medicionServ.getLastMedicion(parseInt(idDispositivo)); 
+    this.medicionUltima=local;          
+       
+   // this.sensor.setValorObtenido(parseInt(this.medicionUltima.valor));
+   // window.location.reload();
+  };
+
+
 }
+

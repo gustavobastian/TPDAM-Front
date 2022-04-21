@@ -1,12 +1,12 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar >
     <ion-title>
       Dispositivos de Riego
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true">  
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Dispositivos</ion-title>      
@@ -17,30 +17,7 @@
   </ion-header>
 
   
-  <div *ngFor="let element of dispositivos; let i=index" >
-    <!--
-    <p>{{dispositivoServ.listado[i]| json}}</p>
-
-    <p>DispositivoId:{{dispositivoServ.listado[i].gDispositivoId }}</p>
-    <br>
-    <p>Nombre:{{dispositivoServ.listado[i].gNombre}}</p>
-    <p>ElectrovalvulaId:{{dispositivoServ.listado[i].gElectrovalvId}}</p>
-    <p>Ubicacion:{{dispositivoServ.listado[i].gUbicacion }}</p>
-    
-    <ion-card>
-    <ion-item>
-      <ion-card-header>
-        <ion-card-title>Ubicacion:{{dispositivoServ.listado[i].ubicacion }}</ion-card-title>
-        <ion-card-subtitle>Nombre:{{dispositivoServ.listado[i].nombre}}</ion-card-subtitle>
-        <br>
-      </ion-card-header>     
-      <ion-card-content>ElectrovalvulaId:{{dispositivoServ.listado[i].electrovalvulaId}}</ion-card-content>
-      <ion-card-content>DispositivoId:{{dispositivoServ.listado[i].dispositivoId }}</ion-card-content>
-    </ion-item>
-    <ion-button fill="outline" slot="end">View</ion-button>
-    </ion-card>
-    routerLink​=​"/dispositivo/{{dispositivoServ.listado[i].dispositivoId}}
-    -->
+  <div *ngFor="let element of dispositivos; let i=index" >    
     <ion-card >
       <ion-item>
         <ion-icon name="speedometer" slot="start"></ion-icon>
@@ -48,17 +25,18 @@
         <ion-button fill="outline" slot="end" routerLink="/dispositivo/{{dispositivos[i].dispositivoId}}" routerDirection="root" >Visitar</ion-button>        
       </ion-item>  
       <ion-item>
-        <ion-icon name="location" slot="start"></ion-icon>
+        <ion-icon name="location" slot="start" ></ion-icon>
         <ion-label>Ubicacion: {{dispositivos[i].ubicacion }}</ion-label>
       </ion-item>
       <ion-card-content>
-       <p> DispositivoId: {{dispositivos[i].dispositivoId }}</p>
-       <p>ElectrovalvulaId: {{dispositivos[i].electrovalvulaId}}</p>
+       <p appMydirective> Dispositivo Id: {{dispositivos[i].dispositivoId }}</p>
+       <p >ElectrovalvulaId: {{dispositivos[i].electrovalvulaId}}</p>
       </ion-card-content>
     </ion-card>
     
 
   </div>
+  
   
 
 </ion-content>

@@ -16,29 +16,32 @@ export class DispositivoPage  {
   public dispositivo: Dispositivo;
   public medicionUltima: Medicion;
   public idDispositivo: string;
+  public number:string;
 
   constructor(private sensor: DetalleSensorPage, private router: ActivatedRoute, public dispositivoServ: DispositivoService, public medicionServ: MedicionService) {
 
     this.idDispositivo = this.router.snapshot.paramMap.get('id');    
+    this.number=this.idDispositivo;
     this.llamoDispositivo(this.idDispositivo);
     this.llamoMedicion(this.idDispositivo) ;   //this.metodo2(parseInt(this.idDispositivo));    
-    
+       
     console.log(this.dispositivo);    
    };
 
 
   async llamoDispositivo(idDispositivo: string){
     console.log("Estoy en llamando al dispositivo");
-    let local= await this.dispositivoServ.getDispositivo(parseInt(idDispositivo)); 
+    let local= await this.dispositivoServ.getDispositivo(parseInt(idDispositivo));     
     console.log(local.nombre);
     this.dispositivo=local;   
+    
    // window.location.reload();
   };
   async llamoMedicion(idDispositivo: string){
     console.log("Estoy en llamando a la medicion");
     let local= await this.medicionServ.getLastMedicion(parseInt(idDispositivo)); 
     this.medicionUltima=local;          
-    this.loaded=1;      
+    this.loaded=1;   
    // this.sensor.setValorObtenido(parseInt(this.medicionUltima.valor));
    // window.location.reload();
   };

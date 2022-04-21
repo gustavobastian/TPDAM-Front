@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Dispositivo } from '../model/dispositivo';
 import {DispositivoService} from '../services/dispositivo.service';
-
+import { MydirectiveDirective } from '../directives/mydirective.directive'
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
