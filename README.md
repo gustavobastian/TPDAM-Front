@@ -71,3 +71,12 @@ Lista todos los dispositivos.
 ![Browser2](Doc/browser-log-riegos.png)
 ##### Vista Celular
 ![Celu2](Doc/celu-log-riegos.png)
+
+
+
+## Autores 👥
+
+* **[Gustavo Bastian](https://github.com/gustavobastian)**: Responsable.
+
+Aporte de highcharts, asesorias varias realizadas por:
+* **[Brian Ducca](https://github.com/brianducca)** 
