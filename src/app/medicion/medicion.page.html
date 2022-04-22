@@ -8,7 +8,7 @@
 
 <ion-header>
   <ion-toolbar>
-    <ion-title>medicion {{idDispositivo}}</ion-title>
+    <ion-title appMydirective>medicion {{idDispositivo}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -36,7 +36,7 @@
           {{Mediciones[i].fecha}}
         </ion-col>
         <ion-col>
-          {{Mediciones[i].valor}}
+          {{Mediciones[i].valor}}  kPA
         </ion-col>      
       </ion-row>
      <!-- <p>{{Mediciones[i] | medicionesPipe}}</p>-->

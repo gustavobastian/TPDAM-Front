@@ -10,11 +10,10 @@ export class MedicionService {
   private mediciones2: Array <Medicion> = new Array<Medicion>();
   
   urlApi='http://localhost:8000';
-  constructor(private _http: HttpClient ) {
+  postId;
 
-    
-   
-   }
+  constructor(private _http: HttpClient ) {
+  }
 
    getLastMedicion(id): Promise<Medicion>{
     //return this.mediciones.filter(medicion=> medicion.dispositivoId==id)[0];
@@ -29,7 +28,14 @@ export class MedicionService {
     .then((mediciones2:Medicion[])=>{
       return mediciones2;
     });    
-    };    
+    }; 
+    
+    saveLastMedicion(med: Medicion) {
+      //return this.mediciones.filter(medicion=> medicion.dispositivoId==id)[0];      
+      console.log("guardando:"+med.dispositivoId);
+      let output = (med);
+      this._http.post<any>(this.urlApi+"/api/medicion/agregar",output).subscribe(data => {this.postId = data.id;});
+      }; 
   
   }
  

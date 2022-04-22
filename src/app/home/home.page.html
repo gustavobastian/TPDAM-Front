@@ -9,13 +9,12 @@
 <ion-content [fullscreen]="true">  
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Dispositivos</ion-title>      
+      <ion-title size="large" appMydirective>Dispositivos</ion-title>      
     </ion-toolbar>
     <ion-toolbar>
-    <ion-title size="large">de Riego</ion-title>
+    <ion-title size="large" >de Riego</ion-title>
   </ion-toolbar>
   </ion-header>
-
   
   <div *ngFor="let element of dispositivos; let i=index" >    
     <ion-card >
@@ -29,7 +28,7 @@
         <ion-label>Ubicacion: {{dispositivos[i].ubicacion }}</ion-label>
       </ion-item>
       <ion-card-content>
-       <p appMydirective> Dispositivo Id: {{dispositivos[i].dispositivoId }}</p>
+       <p > Dispositivo Id: {{dispositivos[i].dispositivoId }}</p>
        <p >ElectrovalvulaId: {{dispositivos[i].electrovalvulaId}}</p>
       </ion-card-content>
     </ion-card>

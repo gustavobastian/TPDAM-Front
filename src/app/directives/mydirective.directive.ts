@@ -7,13 +7,13 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
 export class MydirectiveDirective {
 
   constructor(private el:ElementRef) { 
-    el.nativeElement.style.height = "10px" ;    
+    
   }
   @HostListener('mouseenter') onMouseEnter(){
-    this.el.nativeElement.style.height = '50px';
+    this.el.nativeElement.style.backgroundColor = 'gray';
   }
   @HostListener('mouseleave') onMouseLeave(){
-    this.el.nativeElement.style.height = '70px';
+    this.el.nativeElement.style.backgroundColor = 'white';
   } 
 
 }

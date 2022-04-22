@@ -40,7 +40,7 @@ export class DetalleSensorPage implements OnInit {
               valueSuffix: ' kPA'
           }
       }]});
-    },6000);
+    },600);
   }
 
   ngOnInit() {

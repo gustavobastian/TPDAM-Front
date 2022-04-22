@@ -7,7 +7,7 @@ import { Medicion} from '../model/medicion'
 export class MedicionesPipePipe implements PipeTransform {
 
   transform(first: Medicion): string {
-    const out='Medicion: '+ first.medicionId + ' | Fecha:' + first.fecha + ' | Valor:' + first.valor;
+    const out='Medicion: '+ first.medicionId + ' | Fecha:' + first.fecha + ' | Valor:' + first.valor +'kPA';
     return out;
   }
 
