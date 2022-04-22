@@ -1,39 +1,42 @@
 export class Dispositivo{
-    public dispositivoId: number;
-    public nombre: string;
-    public ubicacion: string;
-    public electrovalvulaId: number;
+    private _dispositivoId: number;    
+    private _nombre: string;
+    private _ubicacion: string;
+    private _electrovalvulaId: number;
+    
 
-    constructor(electrovalvId: number, nombre: string, ubic: string, dispositivoId: number){
-        this.dispositivoId= dispositivoId;
-        this.nombre= nombre;
-        this.ubicacion = ubic;
-        this.electrovalvulaId= electrovalvId;
-    }
-    /*
-    public  gDispositivoId(): number{
-        return this.dispositivoId;
-    }
-    public  sDispositivoId(num: number){
-         this.dispositivoId = num;
-    }
-    public  gElectrovalvId(): number {
-        return this.electrovalvulaId;
-    }
-    public  sElectrovalvId(num: number){
-        this.electrovalvulaId = num;
-    }
+    constructor(dispositivoId: number, nombre: string, ubic: string,electrovalvId: number ){
+        this._dispositivoId= dispositivoId;
+        this._nombre= nombre;
+        this._ubicacion = ubic;
+        this._electrovalvulaId= electrovalvId;       
 
-    public  gNombre(): string {
-        return this.nombre;
     }
-    public  sNombre(nom: string){
-        this.nombre = nom;
+    
+    public  get dispositivoId(){
+        return this._dispositivoId;
     }
-    public gUbicacion(): string{
-        return this.ubicacion;
+    public set dispositivoId(num: number){
+         this._dispositivoId = num;
     }
-    public sUbicacion(ubic: string){
-        this.ubicacion = ubic;
-    }*/
+    
+    public  get electrovalvulaId(){
+        return this._electrovalvulaId;
+    }
+    public set electrovalvulaId(num: number){
+        this._electrovalvulaId = num;
+    }
+    
+    public get nombre() {
+        return this._nombre;
+    }
+    public set nombre(nom: string){
+        this._nombre = nom;
+    }
+    public get ubicacion(){
+        return this._ubicacion;
+    }
+    public set ubicacion(ubic: string){
+        this._ubicacion = ubic;
+    }
 };

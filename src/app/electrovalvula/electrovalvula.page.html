@@ -1,0 +1,26 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>electrovalvula {{idEvalvula}}</ion-title>    
+  </ion-toolbar>
+</ion-header>
+<button style="width: 100%;height: 20px;" ></button>
+<ion-content>
+ <!-- <p>{{ultimoLogRiegos| json}}</p>-->
+ <!--<ion-title> Nombre:{{electrovalvula.nombre}}</ion-title>    -->
+  <br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <div [ngSwitch]= "apertura">
+    <ion-toggle *ngSwitchCase="1" checked style="margin:10%; width:75%; height:40px;" (ionChange)="OnChange()"></ion-toggle>
+    <ion-toggle *ngSwitchCase="0" style="margin:10%; width:75%; height:40px;" (ionChange)="OnChange()"></ion-toggle>
+  </div>  
+  
+</ion-content>

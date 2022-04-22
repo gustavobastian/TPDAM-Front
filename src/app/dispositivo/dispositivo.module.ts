@@ -7,8 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { DispositivoPageRoutingModule } from './dispositivo-routing.module';
 
 import { DispositivoPage } from './dispositivo.page';
+import { DetalleSensorPage } from './detalle-sensor-page';
 
-//import { DetalleSensorPage } from './detalle-sensor-page';
 
 
 @NgModule({
@@ -16,9 +16,9 @@ import { DispositivoPage } from './dispositivo.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    DispositivoPageRoutingModule,
-    //DetalleSensorPage,
+    DispositivoPageRoutingModule,    
+   
   ],
-  declarations: [DispositivoPage]
+  declarations: [DispositivoPage, DetalleSensorPage]
 })
 export class DispositivoPageModule {}
