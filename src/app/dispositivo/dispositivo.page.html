@@ -21,8 +21,13 @@
   </ion-header>      
   
     <app-detalle-sensor [sensorNumber]=idDispositivo></app-detalle-sensor> 
-    
-  <ion-button shape="round" expand="full"routerLink="/electrovalvula/{{dispositivo.electrovalvulaId}}" routerDirection="root" >ABRIR ELECTROVALVULAS</ion-button>
+  
+  <div *ngIf="apertura == 1" > 
+  <ion-button shape="round" expand="full" (click)="botonElectrovalvulaAbrir()" >ABRIR ELECTROVALVULAS</ion-button>
+  </div>
+  <div *ngIf="apertura == 0" > 
+    <ion-button shape="round" expand="full" (click)="botonElectrovalvulaCerrar()" >CERRAR ELECTROVALVULAS</ion-button>
+    </div>
   <ion-button shape="round" expand="full" routerLink="/medicion/{{idDispositivo}}" routerDirection="root" >VER TODAS LAS MEDICIONES</ion-button>
   <ion-button shape="round" expand="full" routerLink="/log-riegos/{{dispositivo.dispositivoId}}" routerDirection="root">VER LOG DE RIEGOS</ion-button>
  </div>

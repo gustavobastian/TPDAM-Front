@@ -23,10 +23,6 @@ const routes: Routes = [
     path: 'log-riegos/:id',
     loadChildren: () => import('./log-riegos/log-riegos.module').then( m => m.LogRiegosPageModule)
   },
-  {
-    path: 'electrovalvula/:id',
-    loadChildren: () => import('./electrovalvula/electrovalvula.module').then( m => m.ElectrovalvulaPageModule)
-  },
 ];
 
 @NgModule({

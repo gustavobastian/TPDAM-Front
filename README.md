@@ -60,12 +60,6 @@ Lista todos los dispositivos.
 ##### Vista Celular
 ![Celu3](Doc/celu-mediciones.png)
 
-#### Pagina Electroválvula
-##### Vista Browser
-![Browser3](Doc/browser-electrovalvula.png)
-##### Vista Celular
-![Celu3](Doc/celu-electrovalvula.png)
-
 #### Pagina Log Riegos
 ##### Vista Browser
 ![Browser2](Doc/browser-log-riegos.png)
