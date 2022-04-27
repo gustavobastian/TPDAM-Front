@@ -7,6 +7,8 @@ import { Medicion } from '../model/medicion';
 import { MedicionService } from '../services/medicion.service';
 
 
+
+
 @Component({
   selector: 'app-detalle-sensor',
   templateUrl: './detalle-sensor-page.html'
@@ -20,6 +22,7 @@ export class DetalleSensorPage implements OnInit {
   private valorObtenido=0;
   private chartOptions;
   
+
 
    @Input() sensorNumber : string;
 
@@ -41,6 +44,7 @@ export class DetalleSensorPage implements OnInit {
           }
       }]});
     },600);*/
+  
   }
 
   ngOnInit() {
@@ -55,6 +59,11 @@ export class DetalleSensorPage implements OnInit {
   ionViewDidEnter() {
     this.update();
   }
+  ngOnChanges() {
+    this.update();
+  } 
+
+  
 
   generarChart(name: string) {
     this.chartOptions={
@@ -120,6 +129,7 @@ export class DetalleSensorPage implements OnInit {
     this.myChart = Highcharts.chart('highcharts', this.chartOptions );
   }
    public update(){
+     console.log("here");
      this.valorObtenido= parseInt( this.medicionUltima.valor);
      this.myChart.update({series: [{
       name: 'kPA',
@@ -129,7 +139,6 @@ export class DetalleSensorPage implements OnInit {
       }
   }]});
    }
-
    async llamoMedicion(idDispositivo: string){
     console.log("Estoy en llamando a la medicion");
     let local= await this.medicionServ.getLastMedicion(parseInt(idDispositivo)); 
@@ -139,6 +148,6 @@ export class DetalleSensorPage implements OnInit {
    // window.location.reload();
   };
 
-
+  
 }
 

@@ -21,15 +21,18 @@ export class DispositivoPage implements OnInit {
   public medicionUltima: Medicion;
   public idDispositivo: string;
   public number:string;
-  public apertura=0;
+  public apertura=2;
   public ultimoLogRiegos: LogRiegos;
   public electrovalvula: Electrovalvula;
   
-
+  
 
   constructor(private sensor: DetalleSensorPage,public electroServ: ElectrovalvulaService, public medicionesServ: MedicionService ,private router: ActivatedRoute, public dispositivoServ: DispositivoService, public medicionServ: MedicionService , public logRiegoServ: LogRiegoService) {
 
-    
+    setTimeout(()=>{
+      this.llamoElectrovalvulaId();
+      this.llamoLastLogRiegos();      
+    },600);
     
    };
 
@@ -38,8 +41,9 @@ export class DispositivoPage implements OnInit {
     this.number=this.idDispositivo;
     this.llamoDispositivo(this.idDispositivo);
     this.llamoMedicion(this.idDispositivo) ;   //this.metodo2(parseInt(this.idDispositivo));    
-       
+    
     console.log(this.dispositivo);    
+    
    }
 
   async llamoDispositivo(idDispositivo: string){
@@ -53,8 +57,9 @@ export class DispositivoPage implements OnInit {
   async llamoMedicion(idDispositivo: string){
     console.log("Estoy en llamando a la medicion");
     let local= await this.medicionServ.getLastMedicion(parseInt(idDispositivo)); 
-    this.medicionUltima=local;          
-    this.loaded=1;   
+    this.medicionUltima=local;     
+   this.loaded=1;   
+     
    // this.sensor.setValorObtenido(parseInt(this.medicionUltima.valor));
    // window.location.reload();
   };
@@ -79,12 +84,21 @@ export class DispositivoPage implements OnInit {
     
       console.log("Electrovalve close");
       this.apertura=1;
+      this.electroServ.modifyValveState(this.dispositivo.electrovalvulaId);
+      let nuevamedicion=(Math.floor(Math.random()*90+10));
+      this.medicionUltima.valor=JSON.stringify(nuevamedicion);
+      //this.llamoUltimaMedicionAsociada();
+      this.medicionesServ.saveLastMedicion(this.medicionUltima);
+      console.log(nuevamedicion);
+      window.location.reload();
+      
   
     }
 
     botonElectrovalvulaAbrir():void{
     
       console.log("Electrovalve Open");
+      this.electroServ.modifyValveState(this.dispositivo.electrovalvulaId);
       this.apertura=0;
   
     }

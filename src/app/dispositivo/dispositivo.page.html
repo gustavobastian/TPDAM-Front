@@ -9,18 +9,8 @@
 <ion-content>
 
 <div *ngIf="loaded == 1">
-  <ion-header>
-   <!-- <ion-toolbar >
-      <ion-title>Nombre: {{dispositivo.nombre}}</ion-title>             
-      <ion-label>Id: {{idDispositivo}}</ion-label>
-      <br/>      
-      <ion-label>Ubicacion:{{dispositivo.ubicacion }}</ion-label>
-      <br/>      
-      <ion-label>ElectrovalvulaId:{{dispositivo.electrovalvulaId}}</ion-label>
-    </ion-toolbar>-->
-  </ion-header>      
-  
-    <app-detalle-sensor [sensorNumber]=idDispositivo></app-detalle-sensor> 
+    
+    <app-detalle-sensor  [sensorNumber]=idDispositivo></app-detalle-sensor> 
   
   <div *ngIf="apertura == 1" > 
   <ion-button shape="round" expand="full" (click)="botonElectrovalvulaAbrir()" >ABRIR ELECTROVALVULAS</ion-button>
