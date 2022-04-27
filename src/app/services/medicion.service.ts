@@ -34,7 +34,7 @@ export class MedicionService {
       //return this.mediciones.filter(medicion=> medicion.dispositivoId==id)[0];      
       console.log("guardando:"+med.dispositivoId);
       let output = (med);
-      this._http.post<any>(this.urlApi+"/api/medicion/agregar",output).subscribe(data => {this.postId = data.id;});
+      this._http.post<any>(this.urlApi+"/api/medicion/",output).subscribe(data => {this.postId = data.id;});
       }; 
   
   }

@@ -25,7 +25,7 @@ export class ElectrovalvulaService {
   };
 
   modifyValveState(id): void{
-    let res= this._http.put<any>(this.urlApi+"/api/electrovalvula/cambio/"+id,"{}").subscribe(data=>this.postId=data.id );
+    let res= this._http.put<any>(this.urlApi+"/api/electrovalvula/"+id,"{}").subscribe(data=>this.postId=data.id );
 
     console.log(res);
    //aux.apertura= (aux.apertura==0)? 1:0;

@@ -15,7 +15,7 @@ export class LogRiegoService {
   
    
    modifyValveState(id): void{
-     this._http.put(this.urlApi+"/api/electrovalvula/cambio/"+id,"");      
+     this._http.put(this.urlApi+"/api/electrovalvula/"+id,"");      
     //aux.apertura= (aux.apertura==0)? 1:0;
    }; 
 
