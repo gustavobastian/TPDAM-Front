@@ -24,7 +24,7 @@ export class DetalleSensorPage implements OnInit {
    @Input() sensorNumber : string;
 
   constructor(public medicionServ: MedicionService) {
-        
+     /*   
     setTimeout(()=>{
       console.log(this.medicionUltima);
       console.log(this.medicionUltima.valor);
@@ -40,18 +40,20 @@ export class DetalleSensorPage implements OnInit {
               valueSuffix: ' kPA'
           }
       }]});
-    },600);
+    },600);*/
   }
 
   ngOnInit() {
     console.log("este es el sensor:"+ this.sensorNumber);    
-    this.llamoMedicion(this.sensorNumber);
+    
     this.generarChart(this.sensorNumber);
+    this.llamoMedicion(this.sensorNumber);
+    
     
   }
 
   ionViewDidEnter() {
-    
+    this.update();
   }
 
   generarChart(name: string) {
@@ -118,14 +120,21 @@ export class DetalleSensorPage implements OnInit {
     this.myChart = Highcharts.chart('highcharts', this.chartOptions );
   }
    public update(){
-     this.valorObtenido=100;
+     this.valorObtenido= parseInt( this.medicionUltima.valor);
+     this.myChart.update({series: [{
+      name: 'kPA',
+      data: [this.valorObtenido],
+      tooltip: {
+          valueSuffix: ' kPA'
+      }
+  }]});
    }
 
    async llamoMedicion(idDispositivo: string){
     console.log("Estoy en llamando a la medicion");
     let local= await this.medicionServ.getLastMedicion(parseInt(idDispositivo)); 
     this.medicionUltima=local;          
-       
+    this.update();
    // this.sensor.setValorObtenido(parseInt(this.medicionUltima.valor));
    // window.location.reload();
   };
